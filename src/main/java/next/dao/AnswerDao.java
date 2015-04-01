@@ -10,6 +10,12 @@ import core.jdbc.JdbcTemplate;
 import core.jdbc.RowMapper;
 
 public class AnswerDao {
+	private static AnswerDao instance = new AnswerDao();
+	
+	public static AnswerDao getInstance() {
+		return instance;
+	}
+	
 	
 	public void insert(Answer answer) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
@@ -49,4 +55,6 @@ public class AnswerDao {
 		
 		return jdbcTemplate.query(sql, rm, questionId);
 	}
+	
+	private AnswerDao() { }
 }
