@@ -9,7 +9,7 @@ import org.apache.commons.dbcp.BasicDataSource;
 
 public class ConnectionManager {
 	private static final String DB_DRIVER = "org.h2.Driver";
-	private static final String DB_URL = "jdbc:h2:~/jwp-basic-201501";
+	private static final String DB_URL = "jdbc:h2:~/jwpbasic201501";
 	private static final String DB_USERNAME = "sa";
 	private static final String DB_PW = "";
 	
