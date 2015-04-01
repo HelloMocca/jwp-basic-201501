@@ -18,6 +18,8 @@ public class AnswerDao {
 				answer.getContents(),
 				new Timestamp(answer.getTimeFromCreateDate()),
 				answer.getQuestionId());
+		sql = "UPDATE QUESTIONS SET countOfComment = countOfComment + 1 where questionId = ?";
+		jdbcTemplate.update(sql, answer.getQuestionId());
 	}
 
 	public List<Answer> findAllByQuestionId(long questionId) {
