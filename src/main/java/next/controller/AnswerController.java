@@ -15,11 +15,11 @@ import core.mvc.ModelAndView;
 public class AnswerController extends AbstractController {
 	private AnswerDao answerDao = new AnswerDao();
 	private QuestionDao questionDao = new QuestionDao();
-	private Question question;
-	private List<Answer> answers;
-
+	
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		List<Answer> answers;
+		Question question;
 		long questionId = Long.parseLong(request.getParameter("questionId"));
 		answerDao.insert(new Answer(request.getParameter("writer"), request.getParameter("contents"), questionId));
 		answers = answerDao.findAllByQuestionId(questionId);
