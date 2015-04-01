@@ -17,7 +17,7 @@ public class QuestionDao {
 	}
 
 	public void insert(Question question) {
-		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
 		String sql = "INSERT INTO QUESTIONS (writer, title, contents, createdDate, countOfComment) VALUES (?, ?, ?, ?, ?)";
 		jdbcTemplate.update(sql, 
 				question.getWriter(), 
@@ -28,7 +28,7 @@ public class QuestionDao {
 	}
 	
 	public List<Question> findAll() {
-		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
 		String sql = "SELECT questionId, writer, title, createdDate, countOfComment FROM QUESTIONS "
 				+ "order by questionId desc";
 		
@@ -47,7 +47,7 @@ public class QuestionDao {
 	}
 
 	public Question findById(long questionId) {
-		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
 		String sql = "SELECT questionId, writer, title, contents, createdDate, countOfComment FROM QUESTIONS "
 				+ "WHERE questionId = ?";
 		

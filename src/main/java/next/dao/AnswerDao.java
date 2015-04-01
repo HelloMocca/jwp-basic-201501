@@ -18,7 +18,7 @@ public class AnswerDao {
 	
 	
 	public void insert(Answer answer) {
-		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
 		String sql = "INSERT INTO ANSWERS (writer, contents, createdDate, questionId) VALUES (?, ?, ?, ?)";
 		jdbcTemplate.update(sql, answer.getWriter(),
 				answer.getContents(),
@@ -29,7 +29,7 @@ public class AnswerDao {
 	}
 	
 	public void delete(Answer answer) {
-		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
 		String sql = "DELETE FROM ANSWERS WHERE answerId = ?";
 		jdbcTemplate.update(sql, answer.getAnswerId());
 		sql = "UPDATE QUESTIONS SET countOfComment = countOfComment - 1 where questionId = ?";
@@ -37,7 +37,7 @@ public class AnswerDao {
 	}
 
 	public List<Answer> findAllByQuestionId(long questionId) {
-		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
 		String sql = "SELECT answerId, writer, contents, createdDate FROM ANSWERS WHERE questionId = ? "
 				+ "order by answerId desc";
 		

@@ -8,6 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JdbcTemplate {
+	private static JdbcTemplate instance = new JdbcTemplate();
+	
+	public static JdbcTemplate getInstance() {
+		return instance;
+	}
+	
 	public void update(String sql, PreparedStatementSetter pss) throws DataAccessException {
 		try (Connection conn = ConnectionManager.getConnection(); 
 			PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -73,4 +79,6 @@ public class JdbcTemplate {
 			}
 		};
 	}
+	
+	private JdbcTemplate() {}
 }
