@@ -58,7 +58,8 @@
 				<div class="comment">
 					<div class="comment-metadata">
 						<span class="comment-author">${each.writer},</span> <span
-							class="comment-date"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${each.createdDate}" /></span>
+							class="comment-date"><fmt:formatDate
+								pattern="yyyy-MM-dd HH:mm:ss" value="${each.createdDate}" /></span>
 					</div>
 					<div class="comment-content">
 						<div class="about">내용 :</div>
@@ -73,6 +74,20 @@
 		<!-- comments end -->
 
 	</div>
+	<template id="commentTemplate">
+	<div class="comment">
+		<div class="comment-metadata">
+			<span class="comment-author"></span> <span
+				class="comment-date"></span>
+		</div>
+		<div class="comment-content">
+			<div class="about">내용 :</div>
+		</div>
+		<div>
+			<a href="#">삭제</a>
+		</div>
+	</div>
+	</template>
 	<%@ include file="/include/footer.jspf"%>
 </body>
 </html>
