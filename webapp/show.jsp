@@ -65,7 +65,7 @@
 						<div class="about">내용 :</div>
 						${each.contents}
 					</div>
-					<div>
+					<div class="btn delete-answer-btn" data-answerId="${each.answerId}" data-questionId="${question.questionId}">
 						<a href="#">삭제</a>
 					</div>
 				</div>
@@ -83,7 +83,7 @@
 		<div class="comment-content">
 			<div class="about">내용 :</div>
 		</div>
-		<div>
+		<div class="btn delete-answer-btn">
 			<a href="#">삭제</a>
 		</div>
 	</div>

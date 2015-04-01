@@ -10,7 +10,7 @@ import core.jdbc.JdbcTemplate;
 import core.jdbc.RowMapper;
 
 public class AnswerDao {
-
+	
 	public void insert(Answer answer) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "INSERT INTO ANSWERS (writer, contents, createdDate, questionId) VALUES (?, ?, ?, ?)";
@@ -19,6 +19,14 @@ public class AnswerDao {
 				new Timestamp(answer.getTimeFromCreateDate()),
 				answer.getQuestionId());
 		sql = "UPDATE QUESTIONS SET countOfComment = countOfComment + 1 where questionId = ?";
+		jdbcTemplate.update(sql, answer.getQuestionId());
+	}
+	
+	public void delete(Answer answer) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "DELETE FROM ANSWERS WHERE answerId = ?";
+		jdbcTemplate.update(sql, answer.getAnswerId());
+		sql = "UPDATE QUESTIONS SET countOfComment = countOfComment - 1 where questionId = ?";
 		jdbcTemplate.update(sql, answer.getQuestionId());
 	}
 

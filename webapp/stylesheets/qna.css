@@ -254,6 +254,22 @@ h3 span {
 	left: -4px;
 }
 
+.comment .btn {
+	float:right;
+	margin-bottom:20px;
+	background-color:white;
+	padding:2px 10px;
+	border-right:2px solid grey;
+	border-bottom:2px solid grey;
+	cursor:pointer;
+}
+
+.comment .btn a {
+	text-decoration:none;
+	color:#454545;
+	font-size:12px;
+}
+
 /** Form **/
 
 form {
